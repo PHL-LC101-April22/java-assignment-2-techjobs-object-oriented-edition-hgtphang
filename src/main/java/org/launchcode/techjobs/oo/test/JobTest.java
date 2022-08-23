@@ -30,11 +30,11 @@ public class JobTest {
         assertTrue(jobTest.getPositionType() instanceof PositionType);
         assertTrue(jobTest.getCoreCompetency() instanceof CoreCompetency);
 
-        assertEquals(jobTest.getName(), "Product tester");
-        assertEquals(jobTest.getEmployer().getValue(), "ACME");
-        assertEquals(jobTest.getLocation().getValue(), "Dessert");
-        assertEquals(jobTest.getPositionType().getValue(),"Quality control");
-        assertEquals(jobTest.getCoreCompetency().getValue(),"Persistence" );
+        assertEquals("Product tester", jobTest.getName());
+        assertEquals("ACME", jobTest.getEmployer().getValue());
+        assertEquals("Dessert", jobTest.getLocation().getValue());
+        assertEquals("Quality control", jobTest.getPositionType().getValue());
+        assertEquals("Persistence", jobTest.getCoreCompetency().getValue());
     }
 
     @Test
@@ -54,15 +54,25 @@ public class JobTest {
     @Test
     public void testToStringContainsCorrectLabelsAndData() {
         Job test2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        String expectedResult = "\nID: 1\nName: Job job\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality\nCore Competency: Persistence\n";
-        assertEquals(test2.toString(), expectedResult);
+        String expectedResult = "\nID: " + test2.getId() +
+                "\nName: Product tester" +
+                "\nEmployer: ACME" +
+                "\nLocation: Desert" +
+                "\nPosition Type: Quality control" +
+                "\nCore Competency: Persistence\n";
+        assertEquals(expectedResult, test2.toString());
     }
 
     @Test
     public void testToStringHandlesEmptyField() {
-        Job test3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType(""), new CoreCompetency("Persistence"));
-        String expectedResult = "\nID: 2\nName: Job job\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality\nCore Competency: Persistence\n";
-        assertEquals(test3.toString(), expectedResult);
+        Job test3 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+        String expectedResult = "\nID: " + test3.getId() +
+                "\nName: Data not available" +
+                "\nEmployer: Data not available" +
+                "\nLocation: Data not available" +
+                "\nPosition Type: Data not available" +
+                "\nCore Competency: Data not available\n";
+        assertEquals(expectedResult, test3.toString());
     }
 
 }
