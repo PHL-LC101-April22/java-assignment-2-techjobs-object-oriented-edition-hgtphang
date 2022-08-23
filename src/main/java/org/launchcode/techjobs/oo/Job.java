@@ -102,20 +102,25 @@ public class Job {
         if (this.getName().equals("")) {
             this.name = data;
         }
-        if (this.getEmployer() == null || this.getEmployer().toString().equals("")) {
+        if (this.getEmployer().toString() == null || this.getEmployer().toString().equals("")) {
             this.employer = new Employer(data);
         }
-        if (this.getLocation() == null || this.getLocation().toString().equals("")) {
+        if (this.getLocation().toString() == null || this.getLocation().toString().equals("")) {
             this.location = new Location(data);
         }
-        if (this.getPositionType() == null || this.getPositionType().toString().equals("")) {
+        if (this.getPositionType().toString() == null || this.getPositionType().toString().equals("")) {
             this.positionType = new PositionType(data);
         }
-        if (this.getCoreCompetency() == null || this.getCoreCompetency().toString().equals("")) {
+        if (this.getCoreCompetency().toString() == null || this.getCoreCompetency().toString().equals("")) {
             this.coreCompetency = new CoreCompetency(data);
         }
 
-        return "\nID: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n";
+        return "\nID: " + this.getId() +
+                "\nName: " + this.getName() +
+                "\nEmployer: " + this.getEmployer() +
+                "\nLocation: " + this.getLocation() +
+                "\nPosition Type: " + this.getPositionType() +
+                "\nCore Competency: " + this.getCoreCompetency() + "\n";
     }
 
 }
