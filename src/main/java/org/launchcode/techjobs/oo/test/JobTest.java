@@ -32,7 +32,7 @@ public class JobTest {
 
         assertEquals("Product tester", jobTest.getName());
         assertEquals("ACME", jobTest.getEmployer().getValue());
-        assertEquals("Dessert", jobTest.getLocation().getValue());
+        assertEquals("Desert", jobTest.getLocation().getValue());
         assertEquals("Quality control", jobTest.getPositionType().getValue());
         assertEquals("Persistence", jobTest.getCoreCompetency().getValue());
     }
